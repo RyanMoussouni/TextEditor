@@ -11,11 +11,23 @@ public class PopUpFrame extends JFrame {
     private final int WIDTH = 300;
     private final int HEIGHT = 300;
 
+    private JTable filesTable;
+    private final int numRows = 12;
+    private final int numColumns = 4;
+
     public PopUpFrame(){
         this.setSize(new Dimension(WIDTH, HEIGHT));
-        this.add(new JTextArea(), BorderLayout.CENTER);
 
+        setMainPanel();
         this.setVisible(true);
+    }
+
+    private void setMainPanel(){
+            JPanel mainPanel = new JPanel();
+            filesTable = new JTable(numRows, numColumns);
+            mainPanel.add(filesTable);
+
+            this.add(mainPanel, BorderLayout.CENTER);
     }
 
     public void update(List<IMyFile> files){
