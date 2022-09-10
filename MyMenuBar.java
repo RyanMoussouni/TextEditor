@@ -6,14 +6,26 @@ public class MyMenuBar extends JMenuBar {
     private final String SaveMenuItem = "Save";
 
     private class FileMenu extends JMenu {
+        JMenuItem openButton, saveButton;
+
         public FileMenu() {
             super(TabName);
 
-            JMenuItem open = new JMenuItem(OpenMenuItem);
-            JMenuItem save = new JMenuItem(SaveMenuItem);
+            setOpenButton();
+            setSaveButton();
+        }
 
-            add(open);
-            add(save);
+        public void setOpenButton(){
+            openButton = new JMenuItem(OpenMenuItem);
+
+            OpenActionListener openAL = new OpenActionListener();
+            openButton.addActionListener(openAL);
+            add(openButton);
+        }
+
+        public void setSaveButton(){
+            saveButton = new JMenuItem(SaveMenuItem);
+            add(saveButton);
         }
     }
 
