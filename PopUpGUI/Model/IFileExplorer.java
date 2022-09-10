@@ -1,4 +1,4 @@
-package PopUpGUI.FileExplorer;
+package PopUpGUI.Model;
 
 import Files.*;
 

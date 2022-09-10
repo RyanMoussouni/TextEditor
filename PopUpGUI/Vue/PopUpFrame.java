@@ -1,4 +1,4 @@
-package PopUpGUI;
+package PopUpGUI.Vue;
 
 import Files.IMyFile;
 /* Frame = ok; */
