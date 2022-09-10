@@ -1,3 +1,5 @@
+package PopUpGUI;
+
 import Files.IMyFile;
 /* Frame = ok; */
 import javax.swing.*;
