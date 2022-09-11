@@ -1,10 +1,9 @@
-package PopUpGUI.Vue;
+package main.PopUpGUI.Vue;
 
-import Files.IMyFile;
-import Files.MyDirectory;
-import Files.MyFile;
-import PopUpGUI.Vue.PopUpDataModel.PopUpDataModel;
-/* Frame = ok; */
+import main.Files.IMyFile;
+import main.Files.MyDirectory;
+import main.Files.MyFile;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

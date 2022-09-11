@@ -1,8 +1,8 @@
-package PopUpGUI;
+package main.PopUpGUI;
 
-import Files.MyDirectory;
-import PopUpGUI.Model.IFileExplorer;
-import PopUpGUI.Vue.PopUpFrame;
+import main.Files.MyDirectory;
+import main.PopUpGUI.Model.IFileExplorer;
+import main.PopUpGUI.Vue.PopUpFrame;
 
 public class PopUpController {
     /* TODO: imp comportement d'attente */

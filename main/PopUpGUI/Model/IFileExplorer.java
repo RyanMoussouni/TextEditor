@@ -1,6 +1,6 @@
-package PopUpGUI.Model;
+package main.PopUpGUI.Model;
 
-import Files.*;
+import main.Files.*;
 
 import java.util.List;
 

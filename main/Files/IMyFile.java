@@ -1,4 +1,4 @@
-package Files;
+package main.Files;
 
 /**
  * Types of objects directories and files

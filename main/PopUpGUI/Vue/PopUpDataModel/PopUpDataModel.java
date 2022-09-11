@@ -1,8 +1,8 @@
-package PopUpGUI.Vue.PopUpDataModel;
+package main.PopUpGUI.Vue.PopUpDataModel;
 
-import Files.IMyFile;
-import Files.MyDirectory;
-import Files.MyFile;
+import main.Files.IMyFile;
+import main.Files.MyDirectory;
+import main.Files.MyFile;
 import jdk.jshell.spi.ExecutionControl;
 
 import javax.swing.event.TableModelListener;

@@ -1,4 +1,6 @@
-import MainGUI.GraphicalUserInterface;
+package main;
+
+import main.MainGUI.GraphicalUserInterface;
 
 import java.awt.*;
 

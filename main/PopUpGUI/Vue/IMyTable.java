@@ -1,6 +1,6 @@
-package PopUpGUI.Vue;
+package main.PopUpGUI.Vue;
 
-import Files.IMyFile;
+import main.Files.IMyFile;
 
 import java.util.List;
 
