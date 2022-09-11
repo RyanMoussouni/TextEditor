@@ -12,11 +12,27 @@ import java.util.Collections;
 import java.util.List;
 
 public class PopUpDataModel implements TableModel {
+    private List<IMyFile> files;
 
+    public PopUpDataModel(){
+        var sampleFiles = new ArrayList<IMyFile>(
+                        Collections.singleton(
+                                                new MyDirectory("/",
+                                                                "usr",
+                                                                Collections.singletonList(new MyFile("/usr", "bin"))))
+                        );
 
-    private List<IMyFile> files = new ArrayList<IMyFile>(
-            Collections.singleton(new MyDirectory("/", "usr", Collections.singletonList(new MyFile("/usr", "bin"))))
-    );
+        files = sampleFiles;
+    }
+
+    public PopUpDataModel(List<IMyFile> myFiles){
+        files = myFiles;
+    }
+
+    public void updateFiles(List<IMyFile> myFiles){
+        files = myFiles;
+    }
+
     @Override
     public int getRowCount() {
         return files.size();
@@ -101,19 +117,9 @@ public class PopUpDataModel implements TableModel {
 
     @Override
     public void addTableModelListener(TableModelListener l) {
-        try {
-            throw new ExecutionControl.NotImplementedException("Sorry");
-        } catch (ExecutionControl.NotImplementedException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     public void removeTableModelListener(TableModelListener l) {
-        try {
-            throw new ExecutionControl.NotImplementedException("Sorry");
-        } catch (ExecutionControl.NotImplementedException e) {
-            e.printStackTrace();
-        }
     }
 }
