@@ -3,8 +3,8 @@ package main.PopUpGUI.Model;
 
 import main.Files.MyFile;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IFileExplorer {
-    public ArrayList<MyFile> getSubFiles(MyFile file);
+    public List<MyFile> getSubFiles(MyFile file);
 }
