@@ -1,9 +1,9 @@
 package main.PopUpGUI.Vue;
 
-import main.Files.IMyFile;
+import main.Files.MyFile;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface IMyTable {
-    void updateDisplayedFiles(List<IMyFile> myFiles);
+    void updateDisplayedFiles(ArrayList<MyFile> myFiles);
 }

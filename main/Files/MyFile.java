@@ -1,3 +1,6 @@
 package main.Files;
 
-public record MyFile(String path, String name) implements IMyFile {}
+/**
+ * Types of objects directories and files
+ */
+public record MyFile(String path, String name, boolean isDirectory){}

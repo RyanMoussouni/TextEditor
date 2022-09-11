@@ -1,9 +1,7 @@
 package main.PopUpGUI.Vue.PopUpDataModel;
 
-import main.Files.IMyFile;
-import main.Files.MyDirectory;
-import main.Files.MyFile;
 import jdk.jshell.spi.ExecutionControl;
+import main.Files.MyFile;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
@@ -12,24 +10,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class PopUpDataModel implements TableModel {
-    private List<IMyFile> files;
+    private List<MyFile> files;
 
-    public PopUpDataModel(){
-        var sampleFiles = new ArrayList<IMyFile>(
-                        Collections.singleton(
-                                                new MyDirectory("/",
-                                                                "usr",
-                                                                Collections.singletonList(new MyFile("/usr", "bin"))))
-                        );
+    public PopUpDataModel(){files = new ArrayList<>();};
 
-        files = sampleFiles;
-    }
-
-    public PopUpDataModel(List<IMyFile> myFiles){
+    public PopUpDataModel(List<MyFile> myFiles){
         files = myFiles;
     }
 
-    public void updateFiles(List<IMyFile> myFiles){
+    public void updateFiles(List<MyFile> myFiles){
         files = myFiles;
     }
 
@@ -77,33 +66,7 @@ public class PopUpDataModel implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        IMyFile row = files.get(rowIndex);
-        boolean isDirectory = row instanceof MyDirectory;
-        String value = null;
-
-        switch (columnIndex){
-            case 0:
-                if (isDirectory) {
-                    MyDirectory directory = (MyDirectory) row;
-                    value = directory.name();
-                }
-                else{
-                    MyFile simpleFile = (MyFile) row;
-                    value = simpleFile.name();
-                }
-                break;
-            case 1:
-                value = isDirectory ? "Directory" : "File";
-                break;
-            default:
-                try{
-                    throw new NoSuchFieldException();
-                }
-                catch (NoSuchFieldException e) {
-                    e.printStackTrace();
-                }
-        }
-        return value;
+        return null;
     }
 
     @Override

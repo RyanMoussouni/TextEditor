@@ -1,9 +1,10 @@
 package main.PopUpGUI.Model;
 
-import main.Files.*;
 
-import java.util.List;
+import main.Files.MyFile;
+
+import java.util.ArrayList;
 
 public interface IFileExplorer {
-    public List<IMyFile> getSubFiles(IMyFile file);
+    public ArrayList<MyFile> getSubFiles(MyFile file);
 }

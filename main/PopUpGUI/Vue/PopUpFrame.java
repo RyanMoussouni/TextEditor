@@ -1,24 +1,13 @@
 package main.PopUpGUI.Vue;
 
-import main.Files.IMyFile;
-import main.Files.MyDirectory;
+
 import main.Files.MyFile;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class PopUpFrame extends JFrame {
-    public static void main(String[] args){
-        PopUpFrame popUpFrame = new PopUpFrame();
-        List<IMyFile> files = new ArrayList<IMyFile>(
-                Collections.singleton(new MyDirectory("/", "update test", Collections.singletonList(new MyFile("/usr", ""))))
-        );
-
-        popUpFrame.update(files);
-    }
     private final int WIDTH = 300;
     private final int HEIGHT = 300;
 
@@ -41,7 +30,7 @@ public class PopUpFrame extends JFrame {
             this.add(mainPanel, BorderLayout.CENTER);
     }
 
-    public void update(List<IMyFile> files){
+    public void update(ArrayList<MyFile> files){
         filesTable.updateDisplayedFiles(files);
     }
 }

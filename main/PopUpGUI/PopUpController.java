@@ -1,6 +1,6 @@
 package main.PopUpGUI;
 
-import main.Files.MyDirectory;
+import main.Files.MyFile;
 import main.PopUpGUI.Model.IFileExplorer;
 import main.PopUpGUI.Vue.PopUpFrame;
 
@@ -9,7 +9,7 @@ public class PopUpController {
     private PopUpFrame popUpFrame;
     private IFileExplorer fileExplorer;
 
-    private MyDirectory currentDirectory;
+    private MyFile currentDirectory;
 
     public PopUpController(){}
 }

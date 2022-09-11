@@ -1,10 +1,10 @@
 package main.PopUpGUI.Vue;
 
-import main.Files.IMyFile;
+import main.Files.MyFile;
 import main.PopUpGUI.Vue.PopUpDataModel.PopUpDataModel;
 
 import javax.swing.*;
-import java.util.List;
+import java.util.ArrayList;
 
 public class MyTable extends JTable implements IMyTable {
     protected PopUpDataModel dataModel;
@@ -15,7 +15,7 @@ public class MyTable extends JTable implements IMyTable {
     }
 
     @Override
-    public void updateDisplayedFiles(List<IMyFile> myFiles) {
+    public void updateDisplayedFiles(ArrayList<MyFile> myFiles) {
         dataModel.updateFiles(myFiles);
     }
 }
