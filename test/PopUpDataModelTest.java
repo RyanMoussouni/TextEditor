@@ -21,8 +21,8 @@ class PopUpDataModelTest {
 
     @Test
     void getValueAt(){
-        Assertions.assertEquals(dataModel.getValueAt(0, 0), "NAME_1");
-        Assertions.assertEquals(dataModel.getValueAt(0,1), "File");
+        Assertions.assertEquals("NAME_1", dataModel.getValueAt(0, 0));
+        Assertions.assertEquals("File", dataModel.getValueAt(0,1));
     }
 
     @Test

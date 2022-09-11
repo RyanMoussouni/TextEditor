@@ -6,7 +6,6 @@ import main.Files.MyFile;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class PopUpDataModel implements TableModel {
@@ -66,7 +65,8 @@ public class PopUpDataModel implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return null;
+        var row = files.get(rowIndex);
+        return columnIndex == 0 ? row.name() : (row.isDirectory() ? "Directory" : "File");
     }
 
     @Override
