@@ -42,6 +42,7 @@ public class PopUpController implements MouseListener {
             } catch (NullPointerException | IOException ex) {
                 ex.printStackTrace();
             }
+            popUpFrame.close();
         }
     }
 

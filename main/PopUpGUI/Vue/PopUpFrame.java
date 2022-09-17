@@ -9,6 +9,7 @@ import main.PopUpGUI.PopUpController;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -68,5 +69,9 @@ public class PopUpFrame extends JFrame {
     public boolean isClickedFileDirectory() {
         var clickedFile = getClickedFile();
         return clickedFile.isDirectory();
+    }
+
+    public void close() {
+        dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 }
