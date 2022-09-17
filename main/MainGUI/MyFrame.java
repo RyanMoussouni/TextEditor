@@ -22,17 +22,28 @@ public class MyFrame extends JFrame {
             var popUpFrame = new PopUpFrame();
             var fileExplorer = new FileExplorer();
             var popUpController = new PopUpController(myFrame, popUpFrame, fileExplorer);
-            var files = new ArrayList<>(
-                    Arrays.asList(
-                            new MyFile("/", "Users", true)
-                    )
-            );
+            var files = new ArrayList<>(Arrays.asList(new MyFile("/", "Users", true)));
             popUpFrame.update(files);
             popUpFrame.addMouseClickEventListener(popUpController);
         }
     }
 
-
+    public class SaveActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            var isFileLoadedIntoTextPane = MyFrame.this.isFileLoadedIntoTextPane();
+            if (isFileLoadedIntoTextPane){
+                try {
+                    MyFrame.this.saveDisplayedTextIntoFile();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            else{
+                System.out.println("Not implemented sry");
+            }
+        }
+    }
 
     public class MyMenuBar extends JMenuBar {
         private final String TabName = "File";
@@ -59,6 +70,10 @@ public class MyFrame extends JFrame {
 
             public void setSaveButton(){
                 saveButton = new JMenuItem(SaveMenuItem);
+                add(saveButton);
+
+                SaveActionListener saveAL = new SaveActionListener();
+                saveButton.addActionListener(saveAL);
                 add(saveButton);
             }
         }
@@ -108,5 +123,17 @@ public class MyFrame extends JFrame {
         MyTextPane textPane = getTextPane();
 
         textPane.read(f);
+    }
+
+    public boolean isFileLoadedIntoTextPane(){
+        MyTextPane textPane = getTextPane();
+
+        return textPane.getDisplayedFile() != null;
+    }
+
+    private void saveDisplayedTextIntoFile() throws IOException {
+        var textPane = getTextPane();
+
+        textPane.saveDisplayedTextIntoFile();
     }
 }

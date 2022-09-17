@@ -24,4 +24,17 @@ public class MyTextPane extends JScrollPane {
         var doc = textArea.getDocument();
         return (File) doc.getProperty(Document.StreamDescriptionProperty);
     }
+
+    public void saveDisplayedTextIntoFile() throws IOException {
+        var file = getDisplayedFile();
+
+        write(file);
+    }
+
+    public void write(File f) throws IOException {
+        var outputStream = new FileOutputStream(f);
+        var writer = new OutputStreamWriter(outputStream);
+
+        textArea.write(writer);
+    }
 }
