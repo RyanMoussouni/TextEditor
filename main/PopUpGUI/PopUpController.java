@@ -30,6 +30,7 @@ public class PopUpController implements MouseListener {
             popUpFrame.update(currentDirectorySubFiles);
         }
 
+        //TODO: refactor this, the MyFileObject should give the FileInputStream
         if(doubleClick && !isClickedFileDirectory){
             var clickedFile = popUpFrame.getClickedFile();
             var path = String.format("%s/%s", clickedFile.parentPath(), clickedFile.name());

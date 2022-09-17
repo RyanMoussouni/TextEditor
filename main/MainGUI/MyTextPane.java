@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 public class MyTextPane extends JScrollPane {
     private JTextArea textArea;
 
+    //TODO: refactor this
     public MyTextPane(JTextArea textArea) {
         super(textArea);
         this.textArea = textArea;

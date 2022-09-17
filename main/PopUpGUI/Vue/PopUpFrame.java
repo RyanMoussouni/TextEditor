@@ -19,8 +19,6 @@ public class PopUpFrame extends JFrame {
     private final int HEIGHT = 300;
 
     private MyTable filesTable;
-    private final int numRows = 12;
-    private final int numColumns = 4;
 
     public static void main(String[] args){
         var popUpFrame = new PopUpFrame();
@@ -29,7 +27,7 @@ public class PopUpFrame extends JFrame {
         var gui = new MyFrame(new MyTextPane(new JTextArea()), new MyMenuBar(), dimension);
         var popUpController = new PopUpController(gui, popUpFrame, fileExplorer);
 
-        var files = new ArrayList<MyFile>(
+        var files = new ArrayList<>(
                 Arrays.asList(
                         new MyFile("/", "Users", true),
                         new MyFile("/", "blabla", true)
@@ -46,6 +44,7 @@ public class PopUpFrame extends JFrame {
         this.setVisible(true);
     }
 
+    //TODO: refactor this, these operations should be (?, to confirm) the responsibility of the mainPanel
     private void setMainPanel(){
             JPanel mainPanel = new JPanel();
             filesTable = new MyTable();

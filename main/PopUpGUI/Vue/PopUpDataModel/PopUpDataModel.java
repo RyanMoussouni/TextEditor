@@ -8,6 +8,7 @@ import javax.swing.table.TableModel;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO: think about how to refactor this, it is no easily rideable
 public class PopUpDataModel implements TableModel {
     private List<MyFile> files;
 
