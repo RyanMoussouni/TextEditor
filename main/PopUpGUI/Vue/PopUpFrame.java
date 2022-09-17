@@ -2,9 +2,14 @@ package main.PopUpGUI.Vue;
 
 
 import main.Files.MyFile;
+import main.PopUpGUI.Model.FileExplorer;
+import main.PopUpGUI.PopUpController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,15 +24,18 @@ public class PopUpFrame extends JFrame {
 
     public static void main(String[] args){
         var popUpFrame = new PopUpFrame();
+        var fileExplorer = new FileExplorer();
+        var popUpController = new PopUpController(popUpFrame, fileExplorer);
 
         var files = new ArrayList<MyFile>(
                 Arrays.asList(
-                        new MyFile("/", "Directory", true),
-                        new MyFile("/", "NotDirectory", false)
+                        new MyFile("/", "Users", true),
+                        new MyFile("/", "blabla", true)
                 )
         );
         popUpFrame.update(files);
-    };
+        popUpFrame.addMouseClickEventListener(popUpController);
+    }
 
     public PopUpFrame(){
         this.setSize(new Dimension(WIDTH, HEIGHT));
@@ -44,7 +52,21 @@ public class PopUpFrame extends JFrame {
             this.add(mainPanel, BorderLayout.CENTER);
     }
 
-    public void update(List<MyFile> files){
+    private void addMouseClickEventListener(MouseListener e){
+        filesTable.addMouseListener(e);
+    }
+
+    public void update(List<MyFile> files)
+    {
         filesTable.updateDisplayedFiles(files);
+    }
+
+    public MyFile getClickedFile() {
+        return filesTable.getClickedFile();
+    }
+
+    public boolean isClickedFileDirectory() {
+        var clickedFile = getClickedFile();
+        return clickedFile.isDirectory();
     }
 }

@@ -21,6 +21,17 @@ public class PopUpDataModel implements TableModel {
         files = myFiles;
     }
 
+    public MyFile getFileAt(int row) {
+        if(row >= files.size() || row < 0) {
+            try {
+                throw new Exception("Invalid Argument");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return files.get(row);
+    }
+
     @Override
     public int getRowCount() {
         return files.size();

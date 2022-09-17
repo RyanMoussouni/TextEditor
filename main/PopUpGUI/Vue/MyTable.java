@@ -19,4 +19,9 @@ public class MyTable extends JTable implements IMyTable {
         dataModel.updateFiles(myFiles);
         updateUI();
     }
+
+    public MyFile getClickedFile() {
+        var selectedRow = getSelectedRow();
+        return dataModel.getFileAt(selectedRow);
+    }
 }
