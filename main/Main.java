@@ -1,6 +1,5 @@
 package main;
 import main.MainGUI.MyFrame;
-import main.MainGUI.MyMenuBar;
 import main.MainGUI.MyTextPane;
 
 import javax.swing.*;
@@ -12,6 +11,6 @@ public class Main {
 
     public static void main(String[] args){
         var dimension = new Dimension(HEIGHT, LENGTH);
-        var gui = new MyFrame(new MyTextPane(new JTextArea()), new MyMenuBar(), dimension);
+        var gui = new MyFrame(new MyTextPane(new JTextArea()), dimension);
     }
 }

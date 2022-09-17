@@ -2,7 +2,6 @@ package main.PopUpGUI.Vue;
 
 import main.Files.MyFile;
 import main.MainGUI.MyFrame;
-import main.MainGUI.MyMenuBar;
 import main.MainGUI.MyTextPane;
 import main.PopUpGUI.Model.FileExplorer;
 import main.PopUpGUI.PopUpController;
@@ -24,7 +23,7 @@ public class PopUpFrame extends JFrame {
         var popUpFrame = new PopUpFrame();
         var fileExplorer = new FileExplorer();
         var dimension = new Dimension(400, 400);
-        var gui = new MyFrame(new MyTextPane(new JTextArea()), new MyMenuBar(), dimension);
+        var gui = new MyFrame(new MyTextPane(new JTextArea()), dimension);
         var popUpController = new PopUpController(gui, popUpFrame, fileExplorer);
 
         var files = new ArrayList<>(
@@ -53,7 +52,7 @@ public class PopUpFrame extends JFrame {
             this.add(mainPanel, BorderLayout.CENTER);
     }
 
-    private void addMouseClickEventListener(MouseListener e){
+    public void addMouseClickEventListener(MouseListener e){
         filesTable.addMouseListener(e);
     }
 
