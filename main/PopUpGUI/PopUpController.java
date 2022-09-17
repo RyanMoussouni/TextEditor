@@ -1,17 +1,20 @@
 package main.PopUpGUI;
 
+import main.MainGUI.MyFrame;
 import main.PopUpGUI.Model.IFileExplorer;
 import main.PopUpGUI.Vue.PopUpFrame;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.*;
 
 public class PopUpController implements MouseListener {
-    /* TODO: imp comportement d'attente */
+    private MyFrame mainFrame;
     private PopUpFrame popUpFrame;
     private IFileExplorer fileExplorer;
 
-    public PopUpController(PopUpFrame popUpFrame, IFileExplorer fileExplorer){
+    public PopUpController(MyFrame mainFrame, PopUpFrame popUpFrame, IFileExplorer fileExplorer){
+        this.mainFrame = mainFrame;
         this.popUpFrame = popUpFrame;
         this.fileExplorer = fileExplorer;
     }
@@ -28,7 +31,16 @@ public class PopUpController implements MouseListener {
         }
 
         if(doubleClick && !isClickedFileDirectory){
-            //TODO
+            var clickedFile = popUpFrame.getClickedFile();
+            var path = String.format("%s/%s", clickedFile.parentPath(), clickedFile.name());
+            var f = new File(path);
+
+            try {
+                FileInputStream in = new FileInputStream(f);
+                mainFrame.readIntoTextPane(in);
+            } catch (NullPointerException | IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 

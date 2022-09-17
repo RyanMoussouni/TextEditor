@@ -1,7 +1,9 @@
 package main.PopUpGUI.Vue;
 
-
 import main.Files.MyFile;
+import main.MainGUI.MyFrame;
+import main.MainGUI.MyMenuBar;
+import main.MainGUI.MyTextPane;
 import main.PopUpGUI.Model.FileExplorer;
 import main.PopUpGUI.PopUpController;
 
@@ -23,7 +25,9 @@ public class PopUpFrame extends JFrame {
     public static void main(String[] args){
         var popUpFrame = new PopUpFrame();
         var fileExplorer = new FileExplorer();
-        var popUpController = new PopUpController(popUpFrame, fileExplorer);
+        var dimension = new Dimension(400, 400);
+        var gui = new MyFrame(new MyTextPane(new JTextArea()), new MyMenuBar(), dimension);
+        var popUpController = new PopUpController(gui, popUpFrame, fileExplorer);
 
         var files = new ArrayList<MyFile>(
                 Arrays.asList(

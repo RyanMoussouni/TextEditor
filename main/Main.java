@@ -1,7 +1,9 @@
 package main;
+import main.MainGUI.MyFrame;
+import main.MainGUI.MyMenuBar;
+import main.MainGUI.MyTextPane;
 
-import main.MainGUI.GraphicalUserInterface;
-
+import javax.swing.*;
 import java.awt.*;
 
 public class Main {
@@ -10,6 +12,6 @@ public class Main {
 
     public static void main(String[] args){
         var dimension = new Dimension(HEIGHT, LENGTH);
-        var gui = new GraphicalUserInterface(dimension);
+        var gui = new MyFrame(new MyTextPane(new JTextArea()), new MyMenuBar(), dimension);
     }
 }

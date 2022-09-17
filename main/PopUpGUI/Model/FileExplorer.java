@@ -14,7 +14,7 @@ public class FileExplorer implements IFileExplorer{
         List<MyFile> subFiles = new ArrayList<>();
         if (myFile.isDirectory())
         {
-            Path directoryPath = Path.of(String.join("/", myFile.path(), myFile.name()));
+            Path directoryPath = Path.of(String.join("/", myFile.parentPath(), myFile.name()));
             try{
                 List<MyFile> fileAndSubFiles = Files.walk(directoryPath, 1)
                         .map(path -> pathMapper(path))
