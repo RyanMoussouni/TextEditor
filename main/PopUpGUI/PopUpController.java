@@ -28,7 +28,7 @@ public class PopUpController implements MouseListener {
         }
 
         if(doubleClick && !isClickedFileDirectory){
-
+            //TODO
         }
     }
 
