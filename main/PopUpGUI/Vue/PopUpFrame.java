@@ -17,25 +17,7 @@ import java.util.List;
 public class PopUpFrame extends JFrame {
     private final int WIDTH = 300;
     private final int HEIGHT = 300;
-
     private MyTable filesTable;
-
-    public static void main(String[] args){
-        var popUpFrame = new PopUpFrame();
-        var fileExplorer = new FileExplorer();
-        var dimension = new Dimension(400, 400);
-        var gui = new MyFrame(new MyTextPane(new JTextArea()), dimension);
-        var popUpController = new PopUpController(gui, popUpFrame, fileExplorer);
-
-        var files = new ArrayList<>(
-                Arrays.asList(
-                        new MyFile("/", "Users", true),
-                        new MyFile("/", "blabla", true)
-                )
-        );
-        popUpFrame.update(files);
-        popUpFrame.addMouseClickEventListener(popUpController);
-    }
 
     public PopUpFrame(){
         this.setSize(new Dimension(WIDTH, HEIGHT));
