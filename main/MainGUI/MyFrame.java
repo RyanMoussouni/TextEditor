@@ -9,8 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -22,7 +22,6 @@ public class MyFrame extends JFrame {
             var popUpFrame = new PopUpFrame();
             var fileExplorer = new FileExplorer();
             var popUpController = new PopUpController(myFrame, popUpFrame, fileExplorer);
-
             var files = new ArrayList<>(
                     Arrays.asList(
                             new MyFile("/", "Users", true)
@@ -32,6 +31,8 @@ public class MyFrame extends JFrame {
             popUpFrame.addMouseClickEventListener(popUpController);
         }
     }
+
+
 
     public class MyMenuBar extends JMenuBar {
         private final String TabName = "File";
@@ -103,9 +104,9 @@ public class MyFrame extends JFrame {
         return textPane;
     }
 
-    public void readIntoTextPane(InputStream input) throws NullPointerException, IOException {
+    public void readIntoTextPane(File f) throws NullPointerException, IOException {
         MyTextPane textPane = getTextPane();
 
-        textPane.read(input);
+        textPane.read(f);
     }
 }

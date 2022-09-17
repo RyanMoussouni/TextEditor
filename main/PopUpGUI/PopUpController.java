@@ -37,8 +37,7 @@ public class PopUpController implements MouseListener {
             var f = new File(path);
 
             try {
-                FileInputStream in = new FileInputStream(f);
-                mainFrame.readIntoTextPane(in);
+                mainFrame.readIntoTextPane(f);
             } catch (NullPointerException | IOException ex) {
                 ex.printStackTrace();
             }

@@ -1,9 +1,8 @@
 package main.MainGUI;
 
 import javax.swing.*;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import javax.swing.text.Document;
+import java.io.*;
 
 public class MyTextPane extends JScrollPane {
     private JTextArea textArea;
@@ -14,9 +13,15 @@ public class MyTextPane extends JScrollPane {
         this.textArea = textArea;
     }
 
-    public void read(InputStream input) throws IOException {
-        var in = new InputStreamReader(input);
+    public void read(File f) throws IOException {
+        var inputStream = new FileInputStream(f);
+        var reader = new InputStreamReader(inputStream);
 
-        textArea.read(in,"Displayed Text");
+        textArea.read(reader, f);
+    }
+
+    public File getDisplayedFile(){
+        var doc = textArea.getDocument();
+        return (File) doc.getProperty(Document.StreamDescriptionProperty);
     }
 }
