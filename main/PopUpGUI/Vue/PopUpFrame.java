@@ -1,17 +1,11 @@
 package main.PopUpGUI.Vue;
 
 import main.Files.MyFile;
-import main.MainGUI.MyFrame;
-import main.MainGUI.MyTextPane;
-import main.PopUpGUI.Model.FileExplorer;
-import main.PopUpGUI.PopUpController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class PopUpFrame extends JFrame {
