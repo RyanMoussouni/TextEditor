@@ -1,7 +1,6 @@
-package main.PopUpGUI.Vue;
+package main.PopUpGUI.Vues;
 
 import main.Files.MyFile;
-import main.PopUpGUI.Vue.PopUpDataModel.PopUpDataModel;
 
 import javax.swing.*;
 import java.util.List;

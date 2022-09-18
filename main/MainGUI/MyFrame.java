@@ -2,8 +2,8 @@ package main.MainGUI;
 
 import main.Files.MyFile;
 import main.PopUpGUI.Model.FileExplorer;
-import main.PopUpGUI.PopUpController;
-import main.PopUpGUI.Vue.PopUpFrame;
+import main.PopUpGUI.Controllers.PopUpController;
+import main.PopUpGUI.Vues.Open.PopUpFrame;
 
 import javax.swing.*;
 import java.awt.*;

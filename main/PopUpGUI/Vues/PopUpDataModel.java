@@ -1,4 +1,4 @@
-package main.PopUpGUI.Vue.PopUpDataModel;
+package main.PopUpGUI.Vues;
 
 import jdk.jshell.spi.ExecutionControl;
 import main.Files.MyFile;

@@ -1,6 +1,7 @@
-package main.PopUpGUI.Vue;
+package main.PopUpGUI.Vues.Open;
 
 import main.Files.MyFile;
+import main.PopUpGUI.Vues.MyTable;
 
 import javax.swing.*;
 import java.awt.*;
