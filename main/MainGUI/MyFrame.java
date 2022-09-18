@@ -1,9 +1,9 @@
 package main.MainGUI;
 
 import main.Files.MyFile;
+import main.PopUpGUI.Controllers.OpenPopUpController;
 import main.PopUpGUI.Model.FileExplorer;
-import main.PopUpGUI.Controllers.PopUpController;
-import main.PopUpGUI.Vues.Open.PopUpFrame;
+import main.PopUpGUI.Vues.Frame.OpenPopUpFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,15 +16,16 @@ import java.util.Arrays;
 
 public class MyFrame extends JFrame {
     public class OpenActionListener implements ActionListener {
+        //TODO: refactor this
         @Override
         public void actionPerformed(ActionEvent e) {
             MyFrame myFrame = MyFrame.this;
-            var popUpFrame = new PopUpFrame();
+            var openPopUpFrame = new OpenPopUpFrame();
             var fileExplorer = new FileExplorer();
-            var popUpController = new PopUpController(myFrame, popUpFrame, fileExplorer);
+            var openPopUpController = new OpenPopUpController(myFrame, openPopUpFrame, fileExplorer);
             var files = new ArrayList<>(Arrays.asList(new MyFile("/", "Users", true)));
-            popUpFrame.update(files);
-            popUpFrame.addMouseClickEventListener(popUpController);
+            openPopUpFrame.update(files);
+            openPopUpFrame.addMouseClickEventListener(openPopUpController);
         }
     }
 

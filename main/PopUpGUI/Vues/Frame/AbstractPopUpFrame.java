@@ -1,4 +1,4 @@
-package main.PopUpGUI.Vues.Open;
+package main.PopUpGUI.Vues.Frame;
 
 import main.Files.MyFile;
 import main.PopUpGUI.Vues.MyTable;
@@ -9,12 +9,12 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.util.List;
 
-public class PopUpFrame extends JFrame {
+public abstract class AbstractPopUpFrame extends JFrame {
     private final int WIDTH = 300;
     private final int HEIGHT = 300;
     private MyTable filesTable;
 
-    public PopUpFrame(){
+    public AbstractPopUpFrame(){
         this.setSize(new Dimension(WIDTH, HEIGHT));
 
         setMainPanel();
