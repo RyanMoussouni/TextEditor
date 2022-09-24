@@ -1,37 +1,39 @@
-package main.PopUpGUI.Vues;
+package main.PopUpGUI.Model;
 
 import jdk.jshell.spi.ExecutionControl;
 import main.Files.IMyFile;
-import main.Files.MyFile;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO: think about how to refactor this, it is no easily rideable
-public class PopUpDataModel implements TableModel {
+public class PopUpModel implements TableModel {
+    private static final int COLUMN_COUNT = 2;
     private List<IMyFile> files;
 
-    public PopUpDataModel(){files = new ArrayList<>();};
+    public PopUpModel(){
+        files = new ArrayList<>();
+    }
 
-    public PopUpDataModel(List<IMyFile> myFiles){
+    public PopUpModel(List<IMyFile> myFiles){
         files = myFiles;
     }
 
-    public void updateFiles(List<IMyFile> myFiles){
+    public void updateFilesData(List<IMyFile> myFiles){
         files = myFiles;
     }
 
-    public IMyFile getFileAt(int row) {
-        if(row >= files.size() || row < 0) {
+    public IMyFile getFileAt(int rowNumber) {
+        var isInvalidRowNumber = (rowNumber >= files.size() || rowNumber < 0);
+        if(isInvalidRowNumber) {
             try {
                 throw new Exception("Invalid Argument");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return files.get(row);
+        return files.get(rowNumber);
     }
 
     @Override
@@ -41,7 +43,7 @@ public class PopUpDataModel implements TableModel {
 
     @Override
     public int getColumnCount() {
-        return 2;
+        return COLUMN_COUNT;
     }
 
     @Override
@@ -67,8 +69,7 @@ public class PopUpDataModel implements TableModel {
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        String string = "";
-        return string.getClass();
+        return "Sample string".getClass();
     }
 
     @Override
@@ -79,7 +80,23 @@ public class PopUpDataModel implements TableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         var row = files.get(rowIndex);
-        return columnIndex == 0 ? row.getName() : (row.isDirectory() ? "Directory" : "File");
+        Object returnedValue = null;
+        switch (columnIndex) {
+            case 0:
+                var fileName = row.getName();
+                returnedValue = fileName;
+            case 1:
+                var fileTypeName = row.isDirectory() ? "Directory" : "File";
+                returnedValue = fileTypeName;
+            default:
+                try {
+                    throw new NoSuchFieldException("Value");
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
+        return returnedValue;
     }
 
     @Override

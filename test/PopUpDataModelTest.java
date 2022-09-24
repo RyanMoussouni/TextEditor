@@ -2,7 +2,7 @@ package test;
 
 import main.Files.IMyFile;
 import main.Files.MyFile;
-import main.PopUpGUI.Vues.PopUpDataModel;
+import main.PopUpGUI.Model.PopUpModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,14 +10,14 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 class PopUpDataModelTest {
-    private PopUpDataModel dataModel;
+    private PopUpModel dataModel;
 
     @BeforeEach
     void setUp() {
         var setUpFiles = new ArrayList<IMyFile>();
         setUpFiles.add(new MyFile("PATH_1", "NAME_1"));
 
-        dataModel = new PopUpDataModel(setUpFiles);
+        dataModel = new PopUpModel(setUpFiles);
     }
 
     @Test
@@ -32,7 +32,7 @@ class PopUpDataModelTest {
         expected.add(new MyFile("PATH_1", "NAME_1"));
         expected.add(new MyFile("PATH_2", "NAME_2"));
 
-        dataModel.updateFiles(expected);
+        dataModel.updateFilesData(expected);
 
         Assertions.assertEquals("NAME_1", dataModel.getValueAt(0, 0));
         Assertions.assertEquals( "File", dataModel.getValueAt(0, 1));
