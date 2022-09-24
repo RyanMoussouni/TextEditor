@@ -1,5 +1,6 @@
 package main.PopUpGUI.Vues;
 
+import main.Files.IMyFile;
 import main.Files.MyFile;
 
 import javax.swing.*;
@@ -14,12 +15,12 @@ public class MyTable extends JTable implements IMyTable {
     }
 
     @Override
-    public void updateDisplayedFiles(List<MyFile> myFiles) {
+    public void updateDisplayedFiles(List<IMyFile> myFiles) {
         dataModel.updateFiles(myFiles);
         updateUI();
     }
 
-    public MyFile getClickedFile() {
+    public IMyFile getClickedFile() {
         var selectedRow = getSelectedRow();
         return dataModel.getFileAt(selectedRow);
     }

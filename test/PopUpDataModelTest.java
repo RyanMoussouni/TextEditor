@@ -1,5 +1,6 @@
 package test;
 
+import main.Files.IMyFile;
 import main.Files.MyFile;
 import main.PopUpGUI.Vues.PopUpDataModel;
 import org.junit.jupiter.api.Assertions;
@@ -13,8 +14,8 @@ class PopUpDataModelTest {
 
     @BeforeEach
     void setUp() {
-        var setUpFiles = new ArrayList<MyFile>();
-        setUpFiles.add(new MyFile("PATH_1", "NAME_1", false));
+        var setUpFiles = new ArrayList<IMyFile>();
+        setUpFiles.add(new MyFile("PATH_1", "NAME_1"));
 
         dataModel = new PopUpDataModel(setUpFiles);
     }
@@ -27,9 +28,9 @@ class PopUpDataModelTest {
 
     @Test
     void updateFiles() {
-        ArrayList<MyFile> expected = new ArrayList<>();
-        expected.add(new MyFile("PATH_1", "NAME_1", false));
-        expected.add(new MyFile("PATH_2", "NAME_2", false));
+        ArrayList<IMyFile> expected = new ArrayList<>();
+        expected.add(new MyFile("PATH_1", "NAME_1"));
+        expected.add(new MyFile("PATH_2", "NAME_2"));
 
         dataModel.updateFiles(expected);
 

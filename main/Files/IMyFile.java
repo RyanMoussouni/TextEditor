@@ -1,8 +1,10 @@
 package main.Files;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
+import java.util.List;
 
 public interface IMyFile{
     String getAbsolutePath();
@@ -11,6 +13,7 @@ public interface IMyFile{
     boolean isTextFile() throws IOException;
     boolean isDirectory();
     boolean isAuthorizedFile();
-    Reader getInputStreamReader();
-    Writer getOutputStreamWriter();
+    Reader getInputStreamReader() throws FileNotFoundException;
+    Writer getOutputStreamWriter() throws FileNotFoundException;
+    List<IMyFile> getChildren();
 }

@@ -1,9 +1,12 @@
 package main.Files;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 //this class is becoming a "wrapper" (?) around the File Class; is it an anti-pattern?
 public class MyFile implements IMyFile{
@@ -12,6 +15,7 @@ public class MyFile implements IMyFile{
     public MyFile(String parentPath, String fileName){
         f = new File(parentPath, fileName);
     }
+    public MyFile(File f){this.f = f;}
 
     @Override
     public String getAbsolutePath() {
@@ -55,5 +59,29 @@ public class MyFile implements IMyFile{
     @Override
     public boolean isAuthorizedFile() {
         return f.canRead();
+    }
+
+    @Override
+    public Reader getInputStreamReader() throws FileNotFoundException {
+        var in = new FileInputStream(f);
+        return new InputStreamReader(in);
+    }
+
+    @Override
+    public Writer getOutputStreamWriter() throws FileNotFoundException {
+        var out = new FileOutputStream(f);
+        return new OutputStreamWriter(out);
+    }
+
+    @Override
+    public List<IMyFile> getChildren() {
+        var children = new ArrayList<IMyFile>();
+        var childFiles = f.listFiles();
+        if (childFiles != null){
+            for (File childFile: childFiles){
+                children.add(new MyFile(childFile));
+            }
+        }
+        return children;
     }
 }

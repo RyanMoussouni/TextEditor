@@ -1,4 +1,4 @@
-package main.PopUpGUI.Vues.Frame;
+package main.PopUpGUI.Vues.Frames;
 
 public class SavePopUpFrame extends AbstractPopUpFrame {
     public SavePopUpFrame(){

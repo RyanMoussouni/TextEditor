@@ -2,9 +2,8 @@ package main.PopUpGUI.Controllers;
 
 import main.MainGUI.MyFrame;
 import main.PopUpGUI.Model.IFileExplorer;
-import main.PopUpGUI.Vues.Frame.OpenPopUpFrame;
+import main.PopUpGUI.Vues.Frames.OpenPopUpFrame;
 
-import java.io.File;
 import java.io.IOException;
 
 public class OpenPopUpController extends AbstractPopUpController{
@@ -14,13 +13,11 @@ public class OpenPopUpController extends AbstractPopUpController{
     }
 
     @Override
-    protected void doubleClickOnFile() {
+    protected void doubleClickOnFile(){
         var clickedFile = popUpFrame.getClickedFile();
-        var path = String.format("%s/%s", clickedFile.parentPath(), clickedFile.name());
-        var f = new File(path);
 
         try {
-            mainFrame.readIntoTextPane(f);
+            mainFrame.readIntoTextPane(clickedFile);
         } catch (NullPointerException | IOException ex) {
             ex.printStackTrace();
         }

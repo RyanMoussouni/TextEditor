@@ -1,21 +1,21 @@
 package main.MainGUI;
 
+import main.Files.IMyFile;
 import main.Files.MyFile;
 import main.PopUpGUI.Controllers.OpenPopUpController;
 import main.PopUpGUI.Model.FileExplorer;
-import main.PopUpGUI.Vues.Frame.OpenPopUpFrame;
+import main.PopUpGUI.Vues.Frames.OpenPopUpFrame;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MyFrame extends JFrame {
     public class OpenActionListener implements ActionListener {
+
         //TODO: refactor this
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -23,7 +23,8 @@ public class MyFrame extends JFrame {
             var openPopUpFrame = new OpenPopUpFrame();
             var fileExplorer = new FileExplorer();
             var openPopUpController = new OpenPopUpController(myFrame, openPopUpFrame, fileExplorer);
-            var files = new ArrayList<>(Arrays.asList(new MyFile("/", "Users", true)));
+            var files = new ArrayList<IMyFile>();
+            files.add(new MyFile("/", "Users"));
             openPopUpFrame.update(files);
             openPopUpFrame.addMouseClickEventListener(openPopUpController);
         }
@@ -120,10 +121,10 @@ public class MyFrame extends JFrame {
         return textPane;
     }
 
-    public void readIntoTextPane(File f) throws NullPointerException, IOException {
+    public void readIntoTextPane(IMyFile clickedFile) throws NullPointerException, IOException {
         MyTextPane textPane = getTextPane();
 
-        textPane.read(f);
+        textPane.read(clickedFile);
     }
 
     public boolean isFileLoadedIntoTextPane(){

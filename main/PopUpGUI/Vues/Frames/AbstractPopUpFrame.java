@@ -1,6 +1,6 @@
-package main.PopUpGUI.Vues.Frame;
+package main.PopUpGUI.Vues.Frames;
 
-import main.Files.MyFile;
+import main.Files.IMyFile;
 import main.PopUpGUI.Vues.MyTable;
 
 import javax.swing.*;
@@ -34,12 +34,12 @@ public abstract class AbstractPopUpFrame extends JFrame {
         filesTable.addMouseListener(e);
     }
 
-    public void update(List<MyFile> files)
+    public void update(List<IMyFile> files)
     {
         filesTable.updateDisplayedFiles(files);
     }
 
-    public MyFile getClickedFile() {
+    public IMyFile getClickedFile() {
         return filesTable.getClickedFile();
     }
 

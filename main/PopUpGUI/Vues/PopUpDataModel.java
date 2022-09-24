@@ -1,6 +1,7 @@
 package main.PopUpGUI.Vues;
 
 import jdk.jshell.spi.ExecutionControl;
+import main.Files.IMyFile;
 import main.Files.MyFile;
 
 import javax.swing.event.TableModelListener;
@@ -10,19 +11,19 @@ import java.util.List;
 
 //TODO: think about how to refactor this, it is no easily rideable
 public class PopUpDataModel implements TableModel {
-    private List<MyFile> files;
+    private List<IMyFile> files;
 
     public PopUpDataModel(){files = new ArrayList<>();};
 
-    public PopUpDataModel(List<MyFile> myFiles){
+    public PopUpDataModel(List<IMyFile> myFiles){
         files = myFiles;
     }
 
-    public void updateFiles(List<MyFile> myFiles){
+    public void updateFiles(List<IMyFile> myFiles){
         files = myFiles;
     }
 
-    public MyFile getFileAt(int row) {
+    public IMyFile getFileAt(int row) {
         if(row >= files.size() || row < 0) {
             try {
                 throw new Exception("Invalid Argument");
@@ -78,7 +79,7 @@ public class PopUpDataModel implements TableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         var row = files.get(rowIndex);
-        return columnIndex == 0 ? row.name() : (row.isDirectory() ? "Directory" : "File");
+        return columnIndex == 0 ? row.getName() : (row.isDirectory() ? "Directory" : "File");
     }
 
     @Override

@@ -2,7 +2,7 @@ package main.PopUpGUI.Controllers;
 
 import main.MainGUI.MyFrame;
 import main.PopUpGUI.Model.IFileExplorer;
-import main.PopUpGUI.Vues.Frame.AbstractPopUpFrame;
+import main.PopUpGUI.Vues.Frames.AbstractPopUpFrame;
 
 public class SavePopUpController extends AbstractPopUpController{
 
