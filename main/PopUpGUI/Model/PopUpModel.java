@@ -85,9 +85,11 @@ public class PopUpModel implements TableModel {
             case 0:
                 var fileName = row.getName();
                 returnedValue = fileName;
+                break;
             case 1:
                 var fileTypeName = row.isDirectory() ? "Directory" : "File";
                 returnedValue = fileTypeName;
+                break;
             default:
                 try {
                     throw new NoSuchFieldException("Value");
