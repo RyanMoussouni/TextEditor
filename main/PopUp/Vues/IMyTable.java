@@ -1,4 +1,4 @@
-package main.PopUpGUI.Vues;
+package main.PopUp.Vues;
 
 import main.Files.IMyFile;
 

@@ -1,8 +1,8 @@
-package main.PopUpGUI.Controllers;
+package main.PopUp.Controllers;
 
-import main.MainGUI.MyFrame;
-import main.PopUpGUI.Model.IFileExplorer;
-import main.PopUpGUI.Vues.Frames.AbstractPopUpFrame;
+import main.MainFrame.MyFrame;
+import main.PopUp.Model.IFileExplorer;
+import main.PopUp.Vues.Frames.AbstractPopUpFrame;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

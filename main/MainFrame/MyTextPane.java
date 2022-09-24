@@ -1,4 +1,4 @@
-package main.MainGUI;
+package main.MainFrame;
 
 import main.Files.IMyFile;
 

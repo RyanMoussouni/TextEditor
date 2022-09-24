@@ -1,4 +1,4 @@
-package main.PopUpGUI.Model;
+package main.PopUp.Model;
 
 import jdk.jshell.spi.ExecutionControl;
 import main.Files.IMyFile;

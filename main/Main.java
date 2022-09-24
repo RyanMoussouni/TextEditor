@@ -1,6 +1,6 @@
 package main;
-import main.MainGUI.MyFrame;
-import main.MainGUI.MyTextPane;
+import main.MainFrame.MyFrame;
+import main.MainFrame.MyTextPane;
 
 import javax.swing.*;
 import java.awt.*;

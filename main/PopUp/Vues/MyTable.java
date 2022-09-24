@@ -1,7 +1,7 @@
-package main.PopUpGUI.Vues;
+package main.PopUp.Vues;
 
 import main.Files.IMyFile;
-import main.PopUpGUI.Model.PopUpModel;
+import main.PopUp.Model.PopUpModel;
 
 import javax.swing.*;
 import java.util.List;

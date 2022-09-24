@@ -1,4 +1,4 @@
-package main.PopUpGUI.Model;
+package main.PopUp.Model;
 
 
 import main.Files.IMyFile;

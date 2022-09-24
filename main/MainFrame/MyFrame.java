@@ -1,10 +1,10 @@
-package main.MainGUI;
+package main.MainFrame;
 
 import main.Files.IMyFile;
 import main.Files.MyFile;
-import main.PopUpGUI.Controllers.OpenPopUpController;
-import main.PopUpGUI.Model.FileExplorer;
-import main.PopUpGUI.Vues.Frames.OpenPopUpFrame;
+import main.PopUp.Controllers.OpenPopUpController;
+import main.PopUp.Model.FileExplorer;
+import main.PopUp.Vues.Frames.OpenPopUpFrame;
 
 import javax.swing.*;
 import java.awt.*;

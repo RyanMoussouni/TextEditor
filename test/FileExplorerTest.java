@@ -1,16 +1,13 @@
 package test;
 
 import main.Files.MyFile;
-import main.PopUpGUI.Model.FileExplorer;
-import main.PopUpGUI.Model.IFileExplorer;
+import main.PopUp.Model.FileExplorer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class FileExplorerTest {
     private FileExplorer fileExplorer;
