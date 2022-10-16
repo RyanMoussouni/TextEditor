@@ -20,7 +20,7 @@ public class JSearchPopUp extends JComponent implements ISearchComponent {
     }
 
     private void CreateButton(){
-        new SearchButton(this);
+        new JSearchButton(this);
     }
 
     @Override

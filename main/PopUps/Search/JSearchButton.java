@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SearchButton extends JButton {
+public class JSearchButton extends JButton {
     private static final String BUTTON_TEXT = "Search";
     private ISearchComponent _searchComponent;
 
-    SearchButton(ISearchComponent searchComponent){
+    JSearchButton(ISearchComponent searchComponent){
         super(BUTTON_TEXT);
         _searchComponent = searchComponent;
 
