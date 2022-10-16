@@ -2,6 +2,7 @@ package main.MainFrame;
 
 import main.Files.IMyFile;
 import main.Files.MyFile;
+import main.MainFrame.TextArea.ISearchableTextArea;
 import main.MainFrame.TextArea.MyTextPane;
 import main.PopUps.Open.Controllers.OpenPopUpController;
 import main.PopUps.Open.Model.FileExplorer;
@@ -108,6 +109,10 @@ public class MyFrame extends JFrame {
         add(textPane, BorderLayout.CENTER);
     }
 
+    public ISearchableTextArea getSearchableTextArea(){
+        var textPane = getTextPane();
+        return textPane.getSearchableTextArea();
+    }
     private MyTextPane getTextPane() throws NullPointerException {
         var components = getContentPane().getComponents();
 
@@ -122,6 +127,7 @@ public class MyFrame extends JFrame {
         return textPane;
     }
 
+    // to me this should not exist, it is not the responsibility of this class
     public void readIntoTextPane(IMyFile clickedFile) throws NullPointerException, IOException {
         MyTextPane textPane = getTextPane();
 

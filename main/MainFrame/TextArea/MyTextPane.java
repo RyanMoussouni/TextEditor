@@ -39,4 +39,8 @@ public class MyTextPane extends JScrollPane {
         var writer = f.getOutputStreamWriter();
         textArea.write(writer);
     }
+
+    public ISearchableTextArea getSearchableTextArea(){
+        return textArea;
+    }
 }
