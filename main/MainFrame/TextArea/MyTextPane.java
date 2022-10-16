@@ -1,6 +1,8 @@
-package main.MainFrame;
+package main.MainFrame.TextArea;
 
 import main.Files.IMyFile;
+import main.PopUps.Replace.IReplaceComponent;
+import main.PopUps.Search.ISearchComponent;
 
 import javax.swing.*;
 import javax.swing.text.Document;
@@ -8,6 +10,8 @@ import java.io.*;
 
 public class MyTextPane extends JScrollPane {
     private JTextArea textArea;
+    private ISearchComponent _seachComponent;
+    private IReplaceComponent _replaceComponent;
 
     //TODO: refactor this
     public MyTextPane(JTextArea textArea) {

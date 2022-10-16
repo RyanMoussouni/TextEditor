@@ -1,6 +1,6 @@
 package main;
 import main.MainFrame.MyFrame;
-import main.MainFrame.MyTextPane;
+import main.MainFrame.TextArea.MyTextPane;
 
 import javax.swing.*;
 import java.awt.*;

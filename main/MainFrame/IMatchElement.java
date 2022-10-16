@@ -1,2 +1,4 @@
-package main.MainFrame;public interface IMatchElement {
+package main.MainFrame;
+
+public interface IMatchElement {
 }

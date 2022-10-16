@@ -1,8 +1,8 @@
-package main.PopUp.Controllers;
+package main.PopUps.Open.Controllers;
 
 import main.MainFrame.MyFrame;
-import main.PopUp.Model.IFileExplorer;
-import main.PopUp.Vues.Frames.AbstractPopUpFrame;
+import main.PopUps.Open.Model.IFileExplorer;
+import main.PopUps.Open.Vues.Frames.AbstractPopUpFrame;
 
 public class SavePopUpController extends AbstractPopUpController{
 

@@ -1,8 +1,8 @@
-package main.PopUp.Controllers;
+package main.PopUps.Open.Controllers;
 
 import main.MainFrame.MyFrame;
-import main.PopUp.Model.IFileExplorer;
-import main.PopUp.Vues.Frames.OpenPopUpFrame;
+import main.PopUps.Open.Model.IFileExplorer;
+import main.PopUps.Open.Vues.Frames.OpenPopUpFrame;
 
 import java.io.IOException;
 

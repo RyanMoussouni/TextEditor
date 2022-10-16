@@ -1,7 +1,7 @@
-package main.PopUp.Vues.Frames;
+package main.PopUps.Open.Vues.Frames;
 
 import main.Files.IMyFile;
-import main.PopUp.Vues.MyTable;
+import main.PopUps.Open.Vues.MyTable;
 
 import javax.swing.*;
 import java.awt.*;
