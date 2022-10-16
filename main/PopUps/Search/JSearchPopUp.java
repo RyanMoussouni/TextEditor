@@ -4,11 +4,12 @@ import main.MainFrame.TextArea.ISearchableTextArea;
 
 import javax.swing.*;
 
-public class JSearchPopUp extends JComponent implements ISearchComponent {
+public class JSearchPopUp extends JPanel implements ISearchComponent {
     private final ISearchableTextArea _textAreaToSearch;
     private JTextArea _userInputTextArea;
 
     public JSearchPopUp(ISearchableTextArea textArea){
+        super();
         _textAreaToSearch = textArea;
 
         SetUserInputTextArea();
@@ -17,10 +18,12 @@ public class JSearchPopUp extends JComponent implements ISearchComponent {
 
     private void SetUserInputTextArea(){
         _userInputTextArea = new JTextArea();
+        this.add(_userInputTextArea);
     }
 
     private void CreateButton(){
-        new JSearchButton(this);
+        var searchButton = new JSearchButton(this);
+        this.add(searchButton);
     }
 
     @Override
