@@ -9,12 +9,12 @@ import javax.swing.text.Document;
 import java.io.*;
 
 public class MyTextPane extends JScrollPane {
-    private JTextArea textArea;
+    private MyTextArea textArea;
     private ISearchComponent _seachComponent;
     private IReplaceComponent _replaceComponent;
 
     //TODO: refactor this
-    public MyTextPane(JTextArea textArea) {
+    public MyTextPane(MyTextArea textArea) {
         super(textArea);
         this.textArea = textArea;
     }
