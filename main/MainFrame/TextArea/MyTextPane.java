@@ -11,9 +11,10 @@ import javax.swing.text.Document;
 import java.io.*;
 
 public class MyTextPane extends JScrollPane {
-    private MyTextArea textArea;
+    private MyTextArea _textArea;
     private ISearchComponent _seachComponent;
     private IReplaceComponent _replaceComponent;
+    //TODO: find out where the best way to put this; it seems to be configuration
     private final String SEARCH_KEY = "meta F";
     private final String REPLACE_KEY = "meta shift F";
 
@@ -21,13 +22,13 @@ public class MyTextPane extends JScrollPane {
     public MyTextPane(MyTextArea textArea) {
         super(textArea);
 
-        setTextArea(textArea);
+        set_textArea(textArea);
         setKeyBindings();
         setFocusable(true);
     }
 
-    public void setTextArea(MyTextArea textArea) {
-        this.textArea = textArea;
+    public void set_textArea(MyTextArea _textArea) {
+        this._textArea = _textArea;
     }
     //TODO: Has side effects
     private void setKeyBindings() {
@@ -39,7 +40,7 @@ public class MyTextPane extends JScrollPane {
     }
 
     private void setSearchKeyBinding(InputMap inputMap, ActionMap actionMap){
-        var searchAction = new SearchAction(textArea);
+        var searchAction = new SearchAction(_textArea);
         var searchKeyStroke = KeyStroke.getKeyStroke(SEARCH_KEY);
 
         actionMap.put(SEARCH_KEY, searchAction);
@@ -57,11 +58,11 @@ public class MyTextPane extends JScrollPane {
     public void read(IMyFile clickedFile) throws IOException {
         var reader = clickedFile.getInputStreamReader();
 
-        textArea.read(reader, clickedFile);
+        _textArea.read(reader, clickedFile);
     }
 
     public IMyFile getDisplayedFile(){
-        var doc = textArea.getDocument();
+        var doc = _textArea.getDocument();
         return (IMyFile) doc.getProperty(Document.StreamDescriptionProperty);
     }
 
@@ -72,10 +73,10 @@ public class MyTextPane extends JScrollPane {
 
     public void write(IMyFile f) throws IOException {
         var writer = f.getOutputStreamWriter();
-        textArea.write(writer);
+        _textArea.write(writer);
     }
 
     public ISearchableTextArea getSearchableTextArea(){
-        return textArea;
+        return _textArea;
     }
 }
