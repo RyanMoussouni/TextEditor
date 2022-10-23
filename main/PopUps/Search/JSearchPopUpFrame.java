@@ -1,24 +1,28 @@
 package main.PopUps.Search;
 
-import main.MainFrame.MyFrame;
 import main.MainFrame.TextArea.ISearchableTextArea;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class JSearchPopUpFrame extends JFrame {
-    private ISearchableTextArea textArea;
+    private ISearchableTextArea _textArea;
     private final int HEIGHT = 100;
     private final int WIDTH = 200;
 
     public JSearchPopUpFrame(ISearchableTextArea textArea){
         super();
 
+        set_textArea(textArea);
         setSize();
         setLayout();
         setPanel();
 
         setVisible(true);
+    }
+
+    private void set_textArea(ISearchableTextArea textArea) {
+        _textArea = textArea;
     }
 
     private void setSize() {
@@ -32,7 +36,7 @@ public class JSearchPopUpFrame extends JFrame {
     }
 
     private void setPanel(){
-        var panel = new JSearchPopUpPanel(textArea);
+        var panel = new JSearchPopUpPanel(_textArea);
         this.add(panel);
     }
 }
