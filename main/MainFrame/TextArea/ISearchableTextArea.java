@@ -1,6 +1,6 @@
 package main.MainFrame.TextArea;
 
-import main.MainFrame.IMatchElement;
+import main.Matches.IMatchElement;
 
 public interface ISearchableTextArea {
     IMatchElement Search(String toSearch);
