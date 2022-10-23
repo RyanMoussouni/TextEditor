@@ -1,7 +1,6 @@
 package main.MainFrame.TextArea;
 
 import main.MainFrame.IMatchElement;
-import main.PopUps.Search.SearchKeyListener;
 
 import javax.swing.*;
 

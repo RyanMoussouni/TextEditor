@@ -39,7 +39,7 @@ public class MyTextPane extends JScrollPane {
     }
 
     private void setSearchKeyBinding(InputMap inputMap, ActionMap actionMap){
-        var searchAction = new SearchAction();
+        var searchAction = new SearchAction(textArea);
         var searchKeyStroke = KeyStroke.getKeyStroke(SEARCH_KEY);
 
         actionMap.put(SEARCH_KEY, searchAction);
@@ -50,8 +50,8 @@ public class MyTextPane extends JScrollPane {
         var replaceAction = new ReplaceAction();
         var replaceKeyStroke = KeyStroke.getKeyStroke(REPLACE_KEY);
 
-        actionMap.put(SEARCH_KEY, replaceAction);
-        inputMap.put(replaceKeyStroke, SEARCH_KEY);
+        actionMap.put(REPLACE_KEY, replaceAction);
+        inputMap.put(replaceKeyStroke, REPLACE_KEY);
     }
 
     public void read(IMyFile clickedFile) throws IOException {
