@@ -1,6 +1,6 @@
 package main.Frontend.PopUps.Search;
 
-import main.Frontend.MainFrame.TextArea.ISearchableTextArea;
+import main.Frontend.PopUps.TextArea.ISearchableTextArea;
 
 import javax.swing.*;
 

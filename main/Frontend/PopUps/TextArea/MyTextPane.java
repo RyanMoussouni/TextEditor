@@ -1,4 +1,4 @@
-package main.Frontend.MainFrame.TextArea;
+package main.Frontend.PopUps.TextArea;
 
 import main.Frontend.PopUps.Replace.ReplaceAction;
 import main.Frontend.PopUps.Search.SearchAction;
@@ -14,7 +14,7 @@ public class MyTextPane extends JScrollPane {
     private MyTextArea _textArea;
     private ISearchComponent _seachComponent;
     private IReplaceComponent _replaceComponent;
-    //TODO: find out where the best way to put this; it seems to be configuration
+    //TODO: find out where the best way to put this; it seems to be configuration; i'd say in properties as it is a configuration file
     private final String SEARCH_KEY = "meta F";
     private final String REPLACE_KEY = "meta shift F";
 

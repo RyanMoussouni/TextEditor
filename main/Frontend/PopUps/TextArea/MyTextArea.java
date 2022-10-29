@@ -1,4 +1,4 @@
-package main.Frontend.MainFrame.TextArea;
+package main.Frontend.PopUps.TextArea;
 
 import main.Backend.StringMatcher.MatchElement.IMatchElement;
 
