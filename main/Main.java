@@ -1,9 +1,8 @@
 package main;
-import main.MainFrame.MyFrame;
-import main.MainFrame.TextArea.MyTextArea;
-import main.MainFrame.TextArea.MyTextPane;
+import main.Frontend.MainFrame.MyFrame;
+import main.Frontend.MainFrame.TextArea.MyTextArea;
+import main.Frontend.MainFrame.TextArea.MyTextPane;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class Main {

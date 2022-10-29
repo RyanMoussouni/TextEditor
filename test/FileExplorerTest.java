@@ -1,7 +1,7 @@
 package test;
 
-import main.Files.MyFile;
-import main.PopUps.Open.Model.FileExplorer;
+import main.Backend.IO.MyFile;
+import main.Frontend.PopUps.Open.Model.FileExplorer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

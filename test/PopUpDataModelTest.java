@@ -1,8 +1,8 @@
 package test;
 
-import main.Files.IMyFile;
-import main.Files.MyFile;
-import main.PopUps.Open.Model.PopUpModel;
+import main.Backend.IO.IMyFile;
+import main.Backend.IO.MyFile;
+import main.Frontend.PopUps.Open.Model.PopUpModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
