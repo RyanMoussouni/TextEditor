@@ -26,10 +26,4 @@ public class BruteForceStringMatcher implements IStringMatcher {
 
         return matches;
     }
-
-    public static void main(String[] args){
-        var bf = new BruteForceStringMatcher();
-
-        var matches = bf.match("blabla", "b");
-    }
 }
