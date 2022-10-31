@@ -1,11 +1,11 @@
-package main.Frontend;
+package main.Frontend.Main;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
-    public static int HEIGHT = 500;
-    public static int WIDTH = 500;
+    public static int HEIGHT = 700;
+    public static int WIDTH = 700;
 
 
     public MainFrame(Component main) {
@@ -17,7 +17,7 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
-    private void setSize(){
+    private void setSize() {
         var dimension = new Dimension(WIDTH, HEIGHT);
         super.setSize(dimension);
     }

@@ -1,4 +1,4 @@
-package main.Frontend;
+package main.Frontend.Main;
 
 import javax.swing.*;
 import java.awt.*;
