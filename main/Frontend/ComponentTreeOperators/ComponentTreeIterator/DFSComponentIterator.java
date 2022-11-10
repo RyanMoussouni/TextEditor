@@ -3,78 +3,89 @@ package main.Frontend.ComponentTreeOperators.ComponentTreeIterator;
 import java.awt.*;
 import java.util.*;
 
-//TODO: test this and refactor;
 public class DFSComponentIterator implements Iterator<Component> {
-    private enum Color {GRAY, BLACK}
-    private Stack<Component> _componentStack;
-    private final Hashtable<Component,Color> _componentColor = new Hashtable<>();
+    private enum Color {WHITE, GRAY, BLACK}
 
-    public DFSComponentIterator(Container root){
+    private Stack<Component> _componentStack;
+    private final Hashtable<Component, Color> _componentColor = new Hashtable<>();
+
+    public DFSComponentIterator(Container root) {
         setComponentStack(root);
     }
 
     private void setComponentStack(Container root) {
         _componentStack = new Stack<>();
 
-        _componentColor.put(root, Color.GRAY);
         _componentStack.push(root);
+        _componentColor.put(root, Color.WHITE);
     }
 
-    //TODO: change this (faux)
-    public boolean hasNext(){
+    //TODO: change this (not correct)
+    public boolean hasNext() {
         throw new RuntimeException();
     }
 
-    //TODO: finish this
-    public Component next() throws NoSuchElementException{
+    public Component next() throws NoSuchElementException {
         Optional<Component> next = Optional.empty();
-        while (!_componentStack.isEmpty()){
-            var top = _componentStack.pop();
-            var topColor = _componentColor.get(top);
 
-            if(topColor != Color.BLACK){
-                _componentStack.push(top);
-                _componentColor.replace(top, getUpdatedComponentColor(top));
+        while (!_componentStack.isEmpty() && next.isEmpty()) {
+            var peek = _componentStack.peek();
+            var peekColor = _componentColor.get(peek);
 
-                if (top instanceof Container){
-                    var topChildren = ((Container) top).getComponents();
-                    for (Component child : topChildren){
-                        var childColor = _componentColor.get(child);
+            if (peekColor == Color.WHITE) {
+                // component is being discovered
+                _componentColor.replace(peek, Color.GRAY);
+                next = Optional.of(peek);
+            }
 
-                        if (childColor == null){
-                            _componentColor.put(child, Color.GRAY);
-                            next = Optional.of(child);
-                        }
-                    }
+            if (peekColor == Color.GRAY) {
+                // component is discovered
+                addChildren(peek);
+                if (isNewComponentColorBlack(peek)) {
+                    _componentColor.replace(peek, Color.BLACK);
                 }
+            }
+
+            if (peekColor == Color.BLACK) {
+                //sub rooted-tree has been discovered
+                _componentStack.pop();
             }
         }
 
-        if (next.isEmpty()){
+        if (next.isEmpty()) {
             throw new NoSuchElementException();
         }
 
         return next.get();
     }
 
-    private Color getUpdatedComponentColor(Component component){
-        var isContainer = component instanceof Container;
-        var black = Color.BLACK;
+    private void addChildren(Component component) {
+        if (component instanceof Container) {
+            var children = Arrays.asList(((Container) component).getComponents());
+            Collections.reverse(children);
 
-        return isContainer ? getUpdatedContainerColor((Container) component)
-                : black;
+            for (Component child : children) {
+                _componentColor.putIfAbsent(child, Color.WHITE);
+
+                if (_componentColor.get(child) == Color.WHITE) {
+                    _componentStack.push(child);
+                }
+            }
+        }
     }
 
-    private Color getUpdatedContainerColor(Container container) {
-        var gray = Color.GRAY;
-        var black = Color.BLACK;
+    private boolean isNewComponentColorBlack(Component component) {
+        var isContainer = component instanceof Container;
 
-        var components = container.getComponents();
-        var hasWhiteChild = Arrays.stream(components).anyMatch(
-                c -> _componentColor.get(c) != null
+        return !isContainer || isNewContainerColorBlack((Container) component);
+    }
+
+    private boolean isNewContainerColorBlack(Container container) {
+        var children = container.getComponents();
+        var hasWhiteChild = Arrays.stream(children).anyMatch(
+                c -> _componentColor.get(c) == Color.WHITE
         );
 
-        return hasWhiteChild ? gray
-                : black;
+        return !hasWhiteChild;
     }
 }
