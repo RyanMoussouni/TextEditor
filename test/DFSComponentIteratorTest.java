@@ -10,7 +10,6 @@ import java.util.NoSuchElementException;
 
 class DFSComponentIteratorTest {
 
-
     // We use the name as a way of indexing the components
     @Test
     void test_no_next() {
