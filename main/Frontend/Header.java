@@ -13,11 +13,17 @@ public class Header {
         JMenu editMenu = getEditMenu();
         JMenu viewMenu = getViewMenu();
 
+        fileMenu.setName("File Menu");
+        editMenu.setName("Edit Menu");
+        viewMenu.setName("View Menu");
+
         JMenuBar menuBar = new JMenuBar();
 
         menuBar.add(fileMenu);
         menuBar.add(editMenu);
         menuBar.add(viewMenu);
+
+        menuBar.setName("Menu Bar");
 
         return menuBar;
     }
@@ -27,7 +33,13 @@ public class Header {
         JMenuItem openItem = getOpenItem();
         JMenuItem saveItem = getSaveItem();
 
+        newItem.setName("New Item");
+        openItem.setName("Open Item");
+        saveItem.setName("Save Item");
+
         var fileMenu = new JMenu("File");
+
+        fileMenu.setName("File Menu");
 
         fileMenu.add(newItem);
         fileMenu.add(openItem);
@@ -105,6 +117,11 @@ public class Header {
         JMenuItem redoItem = getRedoMenuItem();
         JMenuItem findItem = getFindMenuItem();
         JMenuItem replaceItem = getReplaceMenuItem();
+
+        undoItem.setName("Undo Item");
+        redoItem.setName("Redo Item");
+        findItem.setName("Find Item");
+        replaceItem.setName("Replace Item");
 
         var editMenu = new JMenu("Edit");
         editMenu.add(undoItem);

@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 public class FindEdit extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
-        var optionalTextArea = UIBuilder.mainFrame.getComponentByName("Text Area");
+        var optionalTextArea = UIBuilder.finder.find("Text Area");
 
         if (optionalTextArea.isPresent()){
             var text = ((JTextArea) optionalTextArea.get()).getText();

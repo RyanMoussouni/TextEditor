@@ -5,6 +5,9 @@ import java.awt.*;
 
 public class Footer {
     public static Component getStatusBar() {
-        return new JButton("Status Bar");
+        var statusBar = new JButton("Status Bar");
+        statusBar.setName("Status Bar");
+
+        return statusBar;
     }
 }
