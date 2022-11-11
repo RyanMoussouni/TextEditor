@@ -20,9 +20,9 @@ public class DFSComponentIterator implements Iterator<Component> {
         _componentColor.put(root, Color.WHITE);
     }
 
-    //TODO: change this (not correct)
+    //TODO: test this (possibly not correct)
     public boolean hasNext() {
-        throw new RuntimeException();
+        return _componentColor.contains(Color.WHITE);
     }
 
     public Component next() throws NoSuchElementException {
@@ -36,11 +36,11 @@ public class DFSComponentIterator implements Iterator<Component> {
                 // component is being discovered
                 _componentColor.replace(peek, Color.GRAY);
                 next = Optional.of(peek);
+                addChildren(peek);
             }
 
             if (peekColor == Color.GRAY) {
                 // component is discovered
-                addChildren(peek);
                 if (isNewComponentColorBlack(peek)) {
                     _componentColor.replace(peek, Color.BLACK);
                 }
