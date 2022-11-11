@@ -1,12 +1,9 @@
 package main.Frontend.Main;
 
-import main.Frontend.ComponentTreeOperators.ComponentTreeIterator.DFSComponentIterator;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.Iterator;
 
-public class MainFrame extends JFrame implements Iterable<Component> {
+public class MainFrame extends JFrame {
     public static int HEIGHT = 700;
     public static int WIDTH = 700;
 
@@ -18,6 +15,7 @@ public class MainFrame extends JFrame implements Iterable<Component> {
         setLayout(main);
         setLocationRelativeTo(null);
         setVisible(true);
+        setResizable(false);
     }
 
     private void setSize() {
@@ -27,10 +25,5 @@ public class MainFrame extends JFrame implements Iterable<Component> {
 
     private void setLayout(Component main) {
         add(main);
-    }
-
-    @Override
-    public Iterator<Component> iterator() {
-        return new DFSComponentIterator(this);
     }
 }
