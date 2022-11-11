@@ -1,6 +1,6 @@
-package main.Frontend.ComponentTreeOperators.ComponentTreeFinder;
+package main.Frontend.SwingUtils.ComponentTreeFinder;
 
-import main.Frontend.ComponentTreeOperators.ComponentTreeIterator.DFSComponentIterator;
+import main.Frontend.SwingUtils.ComponentTreeIterator.DFSComponentIterator;
 
 import javax.management.openmbean.InvalidKeyException;
 import java.awt.*;
@@ -27,7 +27,7 @@ public class ComponentFinder implements IComponentFinder {
 
             if (candidate.getName() == null) {
                 var warningMessage = "One of the UI component has no name."
-                        + " Such a case is not handled by the component finder";
+                        + " It could lead to an unexpected behavior";
                 System.out.println(warningMessage);
             }
 
