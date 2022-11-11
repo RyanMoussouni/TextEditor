@@ -1,4 +1,4 @@
-package main.Frontend;
+package main.Frontend.Main;
 
 import main.Frontend.Actions.*;
 import main.Frontend.MouseListeners.GenericMouseListener;
@@ -8,8 +8,8 @@ import java.awt.*;
 
 //TODO: make everything abstract so that someone will be able to maintain it and change it in the future
 //TODO: remove the hardcoded data
-public class Header {
-    public static Component getMenuBar() {
+public class HeaderBuilder {
+    public static Component build() {
         JMenu fileMenu = getFileMenu();
         JMenu editMenu = getEditMenu();
         JMenu viewMenu = getViewMenu();

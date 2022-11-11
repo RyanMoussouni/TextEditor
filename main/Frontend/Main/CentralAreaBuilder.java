@@ -1,10 +1,10 @@
-package main.Frontend;
+package main.Frontend.Main;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class CentralArea {
-    public static Component getCentralTextArea() {
+public class CentralAreaBuilder {
+    public static Component build() {
         var textArea = getTextArea();
         var scrollPane = getScrollPanel(textArea);
 

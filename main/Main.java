@@ -1,9 +1,9 @@
 package main;
-import main.Frontend.UIBuilder;
+import main.Frontend.Main.MainFrameBuilder;
 
 public class Main {
 
     public static void main(String[] args){
-        UIBuilder.build();
+        MainFrameBuilder.build();
     }
 }
