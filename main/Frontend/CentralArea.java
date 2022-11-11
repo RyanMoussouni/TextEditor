@@ -4,10 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CentralArea {
-    public static Component getScrollableTextArea() {
+    public static Component getCentralTextArea() {
         var textArea = getTextArea();
+        var scrollPane = getScrollPanel(textArea);
 
-        return new JScrollPane(textArea);
+        return scrollPane;
     }
 
     private static Component getTextArea() {
@@ -15,5 +16,12 @@ public class CentralArea {
         textArea.setName("Text Area");
 
         return textArea;
+    }
+
+    private static Component getScrollPanel(Component textArea) {
+        var scrollPanel = new JScrollPane(textArea);
+        scrollPanel.setName("Scroll Panel");
+
+        return scrollPanel;
     }
 }
