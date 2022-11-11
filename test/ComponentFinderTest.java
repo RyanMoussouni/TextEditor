@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Optional;
 
+//TODO: Add a test for null value
 class ComponentFinderTest {
     private ComponentFinder _finder;
 

@@ -8,12 +8,13 @@ import java.util.Iterator;
 import java.util.Optional;
 
 public class ComponentFinder implements IComponentFinder {
-    private Container _rootComponent;
+    private final Container _rootComponent;
 
     public ComponentFinder(Container root) {
         _rootComponent = root;
     }
 
+    // TODO: refactor this
     // The name of a component should be a unique identifier of this component for the component finder to be correct
     @Override
     public Optional<Component> find(String key) throws InvalidKeyException {
@@ -24,7 +25,14 @@ public class ComponentFinder implements IComponentFinder {
         while (iterator.hasNext()) {
             var candidate = iterator.next();
 
-            if (candidate.getName().equals(key)) {
+            if (candidate.getName() == null) {
+                var warningMessage = "One of the UI component has no name."
+                        + " Such a case is not handled by the component finder";
+                System.out.println(warningMessage);
+            }
+
+            //TODO: change this condition so that the != null is not here
+            if (candidate.getName() != null && candidate.getName().equals(key)) {
                 foundCounter += 1;
 
                 if (foundCounter > 1) {
