@@ -1,4 +1,4 @@
-package main.Frontend.Listeners;
+package main.Frontend.MouseListeners;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
