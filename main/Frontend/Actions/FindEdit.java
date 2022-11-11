@@ -1,10 +1,7 @@
 package main.Frontend.Actions;
 
-import main.Frontend.UIBuilder;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class FindEdit extends AbstractTextAction {
 
