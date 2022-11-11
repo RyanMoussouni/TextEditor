@@ -5,10 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ItemMouseListener implements MouseListener {
+public class GenericMouseListener implements MouseListener {
     private final Action _itemAction;
 
-    public ItemMouseListener(Action itemAction){
+    public GenericMouseListener(Action itemAction){
         _itemAction = itemAction;
     }
 

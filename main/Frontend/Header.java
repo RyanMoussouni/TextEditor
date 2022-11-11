@@ -1,12 +1,13 @@
 package main.Frontend;
 
 import main.Frontend.Actions.*;
-import main.Frontend.MouseListeners.ItemMouseListener;
+import main.Frontend.MouseListeners.GenericMouseListener;
 
 import javax.swing.*;
 import java.awt.*;
 
 //TODO: make everything abstract so that someone will be able to maintain it and change it in the future
+//TODO: remove the hardcoded data
 public class Header {
     public static Component getMenuBar() {
         JMenu fileMenu = getFileMenu();
@@ -47,7 +48,6 @@ public class Header {
         return fileMenu;
     }
 
-    //TODO: refactor this, key and new should be properties
     private static JMenuItem getNewItem(){
         var newMenuItem = new JMenuItem("New");
 
@@ -59,7 +59,7 @@ public class Header {
         actionMap.put(key, action);
         inputMap.put(keyStroke, key);
 
-        var newItemMouseListener = new ItemMouseListener(action);
+        var newItemMouseListener = new GenericMouseListener(action);
         newMenuItem.addMouseListener(newItemMouseListener);
 
 
@@ -81,7 +81,7 @@ public class Header {
         actionMap.put(key, action);
         inputMap.put(keyStroke, key);
 
-        var openItemMouseListener = new ItemMouseListener(action);
+        var openItemMouseListener = new GenericMouseListener(action);
         openMenuItem.addMouseListener(openItemMouseListener);
 
         openMenuItem.setInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW, inputMap);
@@ -102,7 +102,7 @@ public class Header {
         actionMap.put(key, action);
         inputMap.put(keyStroke, key);
 
-        var saveItemMouseListener = new ItemMouseListener(action);
+        var saveItemMouseListener = new GenericMouseListener(action);
         saveMenuItem.addMouseListener(saveItemMouseListener);
 
         saveMenuItem.setInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW, inputMap);
@@ -143,7 +143,7 @@ public class Header {
         actionMap.put(key, action);
         inputMap.put(keyStroke, key);
 
-        var undoMenuItemMouseListener = new ItemMouseListener(action);
+        var undoMenuItemMouseListener = new GenericMouseListener(action);
         undoMenuItem.addMouseListener(undoMenuItemMouseListener);
 
         undoMenuItem.setInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW, inputMap);
@@ -163,7 +163,7 @@ public class Header {
         actionMap.put(key, action);
         inputMap.put(keyStroke, key);
 
-        var redoMenuItemMouseListener = new ItemMouseListener(action);
+        var redoMenuItemMouseListener = new GenericMouseListener(action);
         redoMenuItem.addMouseListener(redoMenuItemMouseListener);
 
         redoMenuItem.setInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW, inputMap);
@@ -183,7 +183,7 @@ public class Header {
         actionMap.put(key, action);
         inputMap.put(keyStroke, key);
 
-        var findMenuItemMouseListener = new ItemMouseListener(action);
+        var findMenuItemMouseListener = new GenericMouseListener(action);
         findMenuItem.addMouseListener(findMenuItemMouseListener);
 
         findMenuItem.setInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW, inputMap);
@@ -203,7 +203,7 @@ public class Header {
         actionMap.put(key, action);
         inputMap.put(keyStroke, key);
 
-        var replaceMenuItemMouseListener = new ItemMouseListener(action);
+        var replaceMenuItemMouseListener = new GenericMouseListener(action);
         replaceMenuItem.addMouseListener(replaceMenuItemMouseListener);
 
         replaceMenuItem.setInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW, inputMap);
