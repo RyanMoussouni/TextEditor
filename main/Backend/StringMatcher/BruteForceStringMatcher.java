@@ -13,7 +13,6 @@ public class BruteForceStringMatcher implements IStringMatcher {
         var n = toMatch.length();
         var m = key.length();
 
-        //TODO: assert if the array is the proper data structure to store such things
         var matches = new ArrayList<IMatchElement>();
         for (int i = 0; i < n-m; i++){
             //end
