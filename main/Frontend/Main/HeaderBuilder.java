@@ -1,6 +1,8 @@
 package main.Frontend.Main;
 
 import main.Frontend.Actions.*;
+import main.Frontend.Actions.FindAndReplace.ShowFindComponent;
+import main.Frontend.Actions.FindAndReplace.ShowReplaceComponent;
 import main.Frontend.MouseListeners.GenericMouseListener;
 
 import javax.swing.*;
@@ -9,7 +11,9 @@ import java.awt.*;
 //TODO: make everything abstract so that someone will be able to maintain it and change it in the future
 //TODO: remove the hardcoded data
 public class HeaderBuilder {
-    public static Component build() {
+    public static Component header;
+
+    public static void build() {
         JMenu fileMenu = getFileMenu();
         JMenu editMenu = getEditMenu();
         JMenu viewMenu = getViewMenu();
@@ -26,7 +30,7 @@ public class HeaderBuilder {
 
         menuBar.setName("Menu Bar");
 
-        return menuBar;
+        header = menuBar;
     }
 
     private static JMenu getFileMenu(){
@@ -177,7 +181,7 @@ public class HeaderBuilder {
         var findMenuItem = new JMenuItem("Find");
         var key = "meta F";
         var keyStroke = KeyStroke.getKeyStroke(key);
-        var action = new FindEdit();
+        var action = new ShowFindComponent();
         var inputMap = new ComponentInputMap(findMenuItem);
         var actionMap = new ActionMap();
         actionMap.put(key, action);
@@ -197,7 +201,7 @@ public class HeaderBuilder {
         var replaceMenuItem = new JMenuItem("Replace");
         var key = "meta R";
         var keyStroke = KeyStroke.getKeyStroke(key);
-        var action = new ReplaceEdit();
+        var action = new ShowReplaceComponent();
         var inputMap = new ComponentInputMap(replaceMenuItem);
         var actionMap = new ActionMap();
         actionMap.put(key, action);

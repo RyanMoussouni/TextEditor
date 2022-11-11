@@ -4,11 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CentralAreaBuilder {
-    public static Component build() {
+    public static Component centralArea;
+
+    public static void build() {
         var textArea = getTextArea();
         var scrollPane = getScrollPanel(textArea);
 
-        return scrollPane;
+        centralArea = scrollPane;
     }
 
     private static Component getTextArea() {
