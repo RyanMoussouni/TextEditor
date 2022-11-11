@@ -3,20 +3,24 @@ package main.Frontend.Actions;
 import main.Frontend.UIBuilder;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class FindEdit extends AbstractAction {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        var optionalTextArea = UIBuilder.finder.find("Text Area");
+public class FindEdit extends AbstractTextAction {
 
-        if (optionalTextArea.isPresent()){
-            var text = ((JTextArea) optionalTextArea.get()).getText();
-            System.out.println(text);
-        }
-        else{
-            var exceptionMessage = "Error: The key you used to find the text area component is invalid";
-            System.out.println(exceptionMessage);
-        }
+    @Override
+    protected void showDialog(Component mainFrame, Component relativeComponent) {
+        var absoluteLocation = relativeComponent.getLocationOnScreen();
+        var size = relativeComponent.getSize();
+
+        var dialog = new JDialog((JFrame) mainFrame, "Dialog");
+        dialog.add(new JButton("My Button"));
+
+        dialog.setLocationRelativeTo(relativeComponent);
+        dialog.setSize(new Dimension(200,100));
+        dialog.setLocation(absoluteLocation.x + size.width - 200, absoluteLocation.y);
+        dialog.setUndecorated(true);
+        dialog.setVisible(true);
+        dialog.setResizable(false);
     }
 }
