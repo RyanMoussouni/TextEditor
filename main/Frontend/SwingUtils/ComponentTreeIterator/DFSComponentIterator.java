@@ -20,7 +20,6 @@ public class DFSComponentIterator implements Iterator<Component> {
         _componentColor.put(root, Color.WHITE);
     }
 
-    //TODO: test this (possibly not correct)
     public boolean hasNext() {
         return _componentColor.contains(Color.WHITE);
     }
