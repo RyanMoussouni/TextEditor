@@ -1,4 +1,4 @@
-package main.Frontend.ComponentTreeOperators.ComponentTreeIterator;
+package main.Frontend.SwingUtils.ComponentTreeIterator;
 
 import java.awt.*;
 import java.util.*;

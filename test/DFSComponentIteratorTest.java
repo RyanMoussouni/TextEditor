@@ -1,6 +1,6 @@
 package test;
 
-import main.Frontend.ComponentTreeOperators.ComponentTreeIterator.DFSComponentIterator;
+import main.Frontend.SwingUtils.ComponentTreeIterator.DFSComponentIterator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

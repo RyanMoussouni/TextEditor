@@ -1,4 +1,4 @@
-package main.Frontend.ComponentTreeOperators.ComponentTreeFinder;
+package main.Frontend.SwingUtils.ComponentTreeFinder;
 
 import java.awt.*;
 import java.util.Optional;
