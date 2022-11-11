@@ -1,7 +1,7 @@
 package main.Frontend;
 
-import main.Frontend.ComponentTreeOperators.ComponentTreeFinder.ComponentFinder;
-import main.Frontend.ComponentTreeOperators.ComponentTreeFinder.IComponentFinder;
+import main.Frontend.SwingUtils.ComponentTreeFinder.ComponentFinder;
+import main.Frontend.SwingUtils.ComponentTreeFinder.IComponentFinder;
 import main.Frontend.Main.MainFrame;
 import main.Frontend.Main.MainPanel;
 
@@ -11,12 +11,12 @@ import java.awt.*;
 // TODO: add regions
 // TODO: factorize some code that is shared by a lot of subroutines
 public class UIBuilder {
-    //This container is used by the controllers to search for specific components
+    // Used by the controllers to search for specific components
     public static IComponentFinder finder;
 
     public static void build(){
         Component header = Header.getMenuBar();
-        Component main = CentralArea.getScrollableTextArea();
+        Component main = CentralArea.getCentralTextArea();
         Component footer = Footer.getStatusBar();
 
         var mainPanel = new MainPanel(header, main, footer);
