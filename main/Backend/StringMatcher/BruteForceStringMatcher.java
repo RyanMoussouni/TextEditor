@@ -14,7 +14,7 @@ public class BruteForceStringMatcher implements IStringMatcher {
         var m = key.length();
 
         var matches = new ArrayList<IMatchElement>();
-        for (int i = 0; i < n-m; i++){
+        for (int i = 0; i <= n-m; i++){
             //end
             var candidate = toMatch.substring(i, i+m);
             if (candidate.equals(key)){

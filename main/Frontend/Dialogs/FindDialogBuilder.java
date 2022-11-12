@@ -1,5 +1,6 @@
 package main.Frontend.Dialogs;
 
+import main.Frontend.Actions.FindAndReplace.Find;
 import main.Frontend.Actions.FindAndReplace.HideFindComponent;
 
 import javax.swing.*;
@@ -42,10 +43,17 @@ public class FindDialogBuilder {
     }
 
     public static Component getTextField() {
-        return new JTextField();
+        var textField = new JTextField();
+        textField.setName("Text Field");
+        textField.addActionListener(new Find());
+
+        return textField;
     }
 
     public static Component getFindButton() {
-        return new JButton("Find");
+        var findButton = new JButton("Find");
+        findButton.addActionListener(new Find());
+
+        return findButton;
     }
 }
