@@ -3,6 +3,7 @@ package main.Backend.IO;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class MyFile implements IMyFile{
 
         if (fileType == null) {
             isTextFile = true;
-        } else isTextFile = !fileType.startsWith("text");
+        } else isTextFile = fileType.startsWith("text");
         return isTextFile;
     }
 
@@ -51,8 +52,10 @@ public class MyFile implements IMyFile{
     }
 
     @Override
-    public boolean isAuthorizedFile() {
-        return _f.canRead();
+    public boolean isAuthorizedFile() throws IOException {
+        var isReadable = _f.canRead();
+
+        return isReadable && isTextFile();
     }
 
     @Override
@@ -77,5 +80,14 @@ public class MyFile implements IMyFile{
             }
         }
         return children;
+    }
+
+    @Override
+    public String getText() throws IOException, FileNotFoundException{
+        var inputStream = getInputStreamReader();
+        var bufferedReader = new BufferedReader(inputStream);
+        var lines = bufferedReader.lines().toList();
+
+        return String.join("\n", lines);
     }
 }

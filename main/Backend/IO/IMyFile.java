@@ -12,8 +12,9 @@ public interface IMyFile{
     String getName();
     boolean isTextFile() throws IOException;
     boolean isDirectory();
-    boolean isAuthorizedFile();
+    boolean isAuthorizedFile() throws IOException;
     Reader getInputStreamReader() throws FileNotFoundException;
     Writer getOutputStreamWriter() throws FileNotFoundException;
     List<IMyFile> getChildren();
+    String getText() throws IOException, FileNotFoundException;
 }
