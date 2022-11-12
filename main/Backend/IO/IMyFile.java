@@ -17,4 +17,5 @@ public interface IMyFile{
     Writer getOutputStreamWriter() throws FileNotFoundException;
     List<IMyFile> getChildren();
     String getText() throws IOException, FileNotFoundException;
+    void writeText(String text) throws IOException, FileNotFoundException;
 }

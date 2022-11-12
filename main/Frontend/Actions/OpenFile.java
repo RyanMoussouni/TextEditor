@@ -18,9 +18,11 @@ public class OpenFile extends AbstractAction {
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             var fileToOpen = fileChooser.getSelectedFile();
             var textArea = (JTextArea) finder.find("Text Area").get();
+            var myFile = new MyFile(fileToOpen);
+            textArea.getDocument().putProperty("file", myFile);
             try {
-                var myFile = new MyFile(fileToOpen);
-                if (myFile.isAuthorizedFile()){
+
+                if (myFile.isAuthorizedFile()) {
                     var text = myFile.getText();
                     textArea.setText(text);
                 }

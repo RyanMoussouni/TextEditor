@@ -83,11 +83,19 @@ public class MyFile implements IMyFile{
     }
 
     @Override
-    public String getText() throws IOException, FileNotFoundException{
+    public String getText() throws IOException, FileNotFoundException {
         var inputStream = getInputStreamReader();
         var bufferedReader = new BufferedReader(inputStream);
         var lines = bufferedReader.lines().toList();
 
         return String.join("\n", lines);
+    }
+
+    @Override
+    public void writeText(String text) throws IOException, FileNotFoundException {
+        var outputStream = getOutputStreamWriter();
+        var bufferedWriter = new BufferedWriter(outputStream);
+        bufferedWriter.write(text);
+        bufferedWriter.close();//TODO: move out of here
     }
 }
