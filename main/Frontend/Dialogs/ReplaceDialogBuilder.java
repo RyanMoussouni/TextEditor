@@ -2,6 +2,7 @@ package main.Frontend.Dialogs;
 
 import main.Frontend.Actions.FindAndReplace.HideFindComponent;
 import main.Frontend.Actions.FindAndReplace.HideReplaceComponent;
+import main.Frontend.Actions.FindAndReplace.Replace;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,14 +45,24 @@ public class ReplaceDialogBuilder {
     }
 
     private static Component getReplaceButton() {
-        return new JButton("Replace");
+        var replaceButton = new JButton("Replace");
+
+        replaceButton.addActionListener(new Replace());
+        return replaceButton;
     }
 
     private static Component getUpperTextField() throws RuntimeException {
-        return new JTextField("Search");
+        var textField = new JTextField();
+        textField.setName("Upper Text Field");
+
+        return textField;
     }
 
     private static Component getLowerTextField() {
-        return new JTextField("Replace");
+        var textField = new JTextField();
+        textField.setName("Lower Text Field");
+
+        textField.addActionListener(new Replace());
+        return textField;
     }
 }
