@@ -2,7 +2,7 @@
 Simple text editor
 
 ## Demo
-![Demo](https://s4.gifyu.com/images/text_editor_demo.gif)
+![Demo](https://s4.gifyu.com/images/faster_faster_faster.gif)
 
 ## Description
 
