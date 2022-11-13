@@ -6,11 +6,18 @@ Simple text editor
 This application is a text editor, fully written in JAVA. 
 
 It has the following features:
-- open / save a file
-- undo / redo
-- search / replace
+- open a file
+- save a file
+- undo
+- redo
+- search
+- replace
 
-A string matcher is implemented on the backend, but you're free to implement more effective ones (KMP for instance)
+#### String Matcher
+One of the goals of this project was try out a few string matching algorithm for the search and replace features. For now, only a BF string matcher is implemented, KMP is part of a feature release.
+
+#### Swing rooted tree traversal
+I implemented a convenient way to query the component tree for a certain component.
 
 ### How to use it
 Download the source code, build the app, and you're good to go!
