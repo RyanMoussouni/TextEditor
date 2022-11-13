@@ -6,7 +6,7 @@ Simple text editor
 This application is a text editor, fully written in JAVA. 
 
 It has the following features:
-- open / close file
+- open / save a file
 - undo / redo
 - search / replace
 
