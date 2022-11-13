@@ -2,7 +2,7 @@
 Simple text editor
 
 ## Demo
-
+https://streamable.com/oz3cr6
 
 ## Description
 
